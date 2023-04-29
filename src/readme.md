@@ -11,9 +11,7 @@ The following dependencies are required for this program:
 - `argparse`
 
 ### Usage
-To use this script, run the following command:
-
-```python drone_mission.py --connect <connection_string>```
+To use this script, run the following command: `<python drone_mission.py --connect <connection_string>>`
 
 Replace `<connection_string>` with the appropriate connection string for your drone.
 
