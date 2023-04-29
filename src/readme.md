@@ -2,7 +2,7 @@
 
 This script is a Python program that controls a drone to visit a list of specified waypoints and receive images from a client while the drone is hovering at each waypoint. The drone will then save these images to a local folder.
 
-**Note**: Before executing this script, ensure that the Raspberry Pi running on Ubuntu 22.04 LTS is set to SoftAP mode by enabling the hotspot in the settings. This will disable the Wi-Fi connection.
+**Note**: Before executing this script, ensure that the Raspberry Pi running on Ubuntu 22.04 LTS is set to SoftAP mode by enabling the hotspot in the settings. This will disable the all active Wi-Fi connections.
 
 ### Dependencies
 The following dependencies are required for this program:
