@@ -2,6 +2,8 @@
 
 This script is a Python program that controls a drone to visit a list of specified waypoints and receive images from a client while the drone is hovering at each waypoint. The drone will then save these images to a local folder.
 
+**Note**: Before executing this script, ensure that the Raspberry Pi running on Ubuntu 22.04 LTS is set to SoftAP mode by enabling the hotspot in the settings. This will disable the Wi-Fi connection.
+
 ### Dependencies
 The following dependencies are required for this program:
 - `dronekit`
@@ -11,7 +13,11 @@ The following dependencies are required for this program:
 - `argparse`
 
 ### Usage
-To use this script, run the following command: `python drone_mission.py --connect <connection_string>`
+To use this script, run the following command:
+
+```bash
+python drone_mission.py --connect <connection_string>
+```
 
 Replace `<connection_string>` with the appropriate connection string for your drone.
 
@@ -49,4 +55,3 @@ The following functions are defined in the script:
 6. The drone saves the received images to the "images_received" folder.
 7. After visiting all waypoints, the drone returns to the launch site and lands.
 8. The script closes the connection to the drone.
-
