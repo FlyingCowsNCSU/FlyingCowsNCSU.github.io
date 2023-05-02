@@ -1,83 +1,92 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 </style>
 
-	<head>
-		<meta charset="UTF-8">
-        <title>Camera Trap: Software</title>
-		<style>undefined</style>
-		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="true">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swa">
-	</head>
-	
-	<body>
-	
-		<center>
-			<h1>Software</h1>
-		</center>
+<head>
+    <meta charset="UTF-8">
+    <title>Camera Trap: Software</title>
+    <style>
+        undefined
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="true">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swa">
+</head>
 
-        <h2>Drone</h2>
-	
-        <p> For the drone we mainly used many python libraies on a Rapberry Pi 4 running Ubuntu 22.04 LTS. We used the following libraries: </p>
+<body>
 
-        <!-- Added instructions for flashing an SD card -->
-        <h3>Flashing Ubuntu 22.04 on Raspberry Pi using Raspberry Pi Imager</h3>
-        <ol>
-            <li>Download and install the Raspberry Pi Imager from the <a href="https://www.raspberrypi.org/software/">official website</a>.</li>
-            <li>Insert your microSD card into your computer using a card reader.</li>
-            <li>Open the Raspberry Pi Imager and click on "Choose OS".</li>
-            <li>Select "Ubuntu" from the list, and then choose "Ubuntu 22.04 LTS" for Raspberry Pi.</li>
-            <li>Click on "Choose Storage" and select your microSD card.</li>
-            <li>Click on "Write" to begin flashing the SD card with Ubuntu 22.04.</li>
-            <li>Wait for the process to finish, then remove the microSD card from your computer.</li>
-            <li>Insert the microSD card into your Raspberry Pi, connect the necessary peripherals, and power it on.</li>
-        </ol>
-        <!-- End of added instructions -->
+    <center>
+        <h1>Software</h1>
+    </center>
 
-        <h3>Downloading ArduPilot</h3>
-            <p>To download ArduPilot, follow these steps:</p>
+    <h2>Drone</h2>
 
-            <ol>
-            <li>First, make sure you have Git installed on your system. If you don't have it, you can download and install Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
-            <li>Open a terminal or command prompt on your computer.</li>
-            <li>Choose a directory where you want to download the ArduPilot source code. You can create a new folder or use an existing one. Navigate to that folder in the terminal using the <code>cd</code> command. For example, if you want to download ArduPilot into a folder called <code>ardupilot_src</code> in your home directory, you can do the following:</li>
-            <pre>
+    <p> For the drone we mainly used many python libraies on a Rapberry Pi 4 running Ubuntu 22.04 LTS. We used the
+        following libraries: </p>
+
+    <!-- Added instructions for flashing an SD card -->
+    <h3>Flashing Ubuntu 22.04 on Raspberry Pi using Raspberry Pi Imager</h3>
+    <ol>
+        <li>Download and install the Raspberry Pi Imager from the <a
+                href="https://www.raspberrypi.org/software/">official website</a>.</li>
+        <li>Insert your microSD card into your computer using a card reader.</li>
+        <li>Open the Raspberry Pi Imager and click on "Choose OS".</li>
+        <li>Select "Ubuntu" from the list, and then choose "Ubuntu 22.04 LTS" for Raspberry Pi.</li>
+        <li>Click on "Choose Storage" and select your microSD card.</li>
+        <li>Click on "Write" to begin flashing the SD card with Ubuntu 22.04.</li>
+        <li>Wait for the process to finish, then remove the microSD card from your computer.</li>
+        <li>Insert the microSD card into your Raspberry Pi, connect the necessary peripherals, and power it on.</li>
+    </ol>
+    <!-- End of added instructions -->
+
+    <h3>Downloading ArduPilot</h3>
+    <p>To download ArduPilot, follow these steps:</p>
+
+    <ol>
+        <li>First, make sure you have Git installed on your system. If you don't have it, you can download and install
+            Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
+        <li>Open a terminal or command prompt on your computer.</li>
+        <li>Choose a directory where you want to download the ArduPilot source code. You can create a new folder or use
+            an existing one. Navigate to that folder in the terminal using the <code>cd</code> command. For example, if
+            you want to download ArduPilot into a folder called <code>ardupilot_src</code> in your home directory, you
+            can do the following:</li>
+        <pre>
             <code>mkdir ~/ardupilot_src
             cd ~/ardupilot_src</code>
             </pre>
-            <li>Clone the ArduPilot repository from GitHub using the following command:</li>
-            <pre>
+        <li>Clone the ArduPilot repository from GitHub using the following command:</li>
+        <pre>
             <code>git clone https://github.com/ArduPilot/ardupilot.git</code>
             </pre>
-            <li>Now, navigate to the downloaded <code>ardupilot</code> folder:</li>
-            <pre>
+        <li>Now, navigate to the downloaded <code>ardupilot</code> folder:</li>
+        <pre>
             <code>cd ardupilot</code>
             </pre>
-            <li>Update the submodules within the repository:</li>
-            <pre>
+        <li>Update the submodules within the repository:</li>
+        <pre>
             <code>git submodule update --init --recursive</code>
             </pre>
-            </ol>
+    </ol>
 
-            <p>At this point, you have successfully downloaded the ArduPilot source code to your computer.
+    <p>At this point, you have successfully downloaded the ArduPilot source code to your computer.
 
-        <h3>Installing dronekit and mavlink with Patches</h3>
-            <p>Follow these steps to install dronekit and mavlink, and apply the necessary patches: </p>
-            <pre><code>
+    <h3>Installing dronekit and mavlink with Patches</h3>
+    <p>Follow these steps to install dronekit and mavlink, and apply the necessary patches: </p>
+    <pre><code>
             sudo python3 -m pip uninstall dronekit pymavlink -y
             mkdir -p updated_dronekit_pkgs && cd updated_dronekit_pkgs
             git clone https://github.com/morzack/dronekit-python.git && cd dronekit-python
@@ -93,24 +102,25 @@ td, th {
             sudo python3 setup.py install
             </code></pre>
 
-        <h3>Installing Additional Python Packages</h3>
-            <ul>
-                <li><a href="https://docs.python.org/3/library/math.html">math</a></li>
-                <li><a href="https://docs.python.org/3/library/time.html">time</a></li>
-                <li><a href="https://docs.python.org/3/library/sys.html">sys</a></li>
-                <li><a href="https://docs.python.org/3/library/socket.html">socket</a></li>
-                <li><a href="https://docs.python.org/3/library/argparse.html">argparse</a></li>
-                </ul>
-            </li>
-        </ul>
-        <p> Some of these packages are already installed with Python, but we included them here for completeness. If you are missing any of these packages, you can install them with the following command: </p>
-        <pre>
+    <h3>Installing Additional Python Packages</h3>
+    <ul>
+        <li><a href="https://docs.python.org/3/library/math.html">math</a></li>
+        <li><a href="https://docs.python.org/3/library/time.html">time</a></li>
+        <li><a href="https://docs.python.org/3/library/sys.html">sys</a></li>
+        <li><a href="https://docs.python.org/3/library/socket.html">socket</a></li>
+        <li><a href="https://docs.python.org/3/library/argparse.html">argparse</a></li>
+    </ul>
+    </li>
+    </ul>
+    <p> Some of these packages are already installed with Python, but we included them here for completeness. If you are
+        missing any of these packages, you can install them with the following command: </p>
+    <pre>
         <code>
             sudo python3 -m pip install &lt;package_name&gt;</code>
         </pre>
 
-        <h3>Running the code on the drone</h3>
-        <pre> 
+    <h3>Running the code on the drone</h3>
+    <pre>
             <p>1. In the command window, run the following command to find the port the drone is connected to:</p>
             <code>ls /dev/ttyACM*</code>
             
@@ -121,49 +131,55 @@ td, th {
             
             <p>3. In a new command window, run the following command to connect your code to the autopilot:</p>
             <code>python3 drone_mission.py --connect :14560</code>
-        </pre>        
-        
-        
-        <h2>Camera Trap</h2>
-
-        <p>
-            We used the Arduino framework to program the ESP32-CAM, the camera trap's microcontroller. Listed below are the software tools and libraries we used, along with links to documentation and installation instructions. Much credit is due to Rui and Sara Santos at <a href="https://randomnerdtutorials.com/">Random Nerd Tutorials</a> for ESP32-CAM programming tutorials and example code.
-        </p>
-
-        <p>
-            Installation guide for Arduino libraries <a href="https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library">here</a>.
-        </p>
-
-        <ul>
-            <li><b>Arduino IDE v 2.0.3:</b> IDE for compiling & downloading code for the ESP32-CAM. 
-                <ul>
-                    <li>Official link: <a href="https://www.arduino.cc/en/software">arduino.cc</a></li>
-                    <li>Setup guide for ESP32-CAM: <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">Random Nerd Tutorials</a></li>
-                </ul>
-            </li>
-
-            <li><b>Arduino Libraries:</b> 
-                <ul>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">Arduino.h</a> version </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">EEPROM.h</a> version </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">esp_camera.h</a> version </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">FS.h</a> version </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_cntl_reg.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_io.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">SD_MMC.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">soc.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">ssl_client.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">string.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFi.h</a> v </li>
-                    <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFiClientSecure.h</a> v </li>
-                </ul>
-            </li>
+        </pre>
 
 
-        </ul>
-			
-		</table>
+    <h2>Camera Trap</h2>
 
-	</body>
-	
+    <p>
+        We used the Arduino framework to program the ESP32-CAM, the camera trap's microcontroller. Listed below are the
+        software tools and libraries we used, along with links to documentation and installation instructions. Much
+        credit is due to Rui and Sara Santos at <a href="https://randomnerdtutorials.com/">Random Nerd Tutorials</a> for
+        ESP32-CAM programming tutorials and example code.
+    </p>
+
+    <p>
+        Installation guide for Arduino libraries <a
+            href="https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library">here</a>.
+    </p>
+
+    <ul>
+        <li><b>Arduino IDE v 2.0.3:</b> IDE for compiling & downloading code for the ESP32-CAM.
+            <ul>
+                <li>Official link: <a href="https://www.arduino.cc/en/software">arduino.cc</a></li>
+                <li>Setup guide for ESP32-CAM: <a
+                        href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">Random
+                        Nerd Tutorials</a></li>
+            </ul>
+        </li>
+
+        <li><b>Arduino Libraries:</b>
+            <ul>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">Arduino.h</a> version </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">EEPROM.h</a> version </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">esp_camera.h</a> version </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">FS.h</a> version </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_cntl_reg.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_io.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">SD_MMC.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">soc.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">ssl_client.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">string.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFi.h</a> v </li>
+                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFiClientSecure.h</a> v </li>
+            </ul>
+        </li>
+
+
+    </ul>
+
+    </table>
+
+</body>
+
 </html>
