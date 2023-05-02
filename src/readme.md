@@ -8,8 +8,6 @@ This script is a Python program that controls a drone to visit a list of specifi
 The following dependencies are required for this program:
 - `dronekit`
 - `pymavlink`
-- `numpy`
-- `opencv-python` (cv2)
 - `argparse`
 
 ### Usage

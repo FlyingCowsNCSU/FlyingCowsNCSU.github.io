@@ -31,28 +31,58 @@ td, th {
 		</center>
 
         <h2>Drone</h2>
-		
-		<table id="t01">
-			
-			<tbody>
-				
-				<tr>
-					<th>Part</th>
-					<th>Description</th>
-					<th>Manufacturer</th>
-					<th>Source</th>
-				<tr>
-				
-				<tr>
-					<td>put something here</td>
-					<td>put something here</td>
-					<td>put something here</td>
-					<td>put something here</td>
-				<tr>
-					
-			</tbody>
-			
-		</table>
+	
+        <p> For the drone we mainly used many python libraies on a Rapberry Pi 4 running Ubuntu 22.04 LTS. We used the following libraries: </p>
+
+        <!-- Added instructions for flashing an SD card -->
+        <h3>Flashing Ubuntu 22.04 on Raspberry Pi using Raspberry Pi Imager</h3>
+        <ol>
+            <li>Download and install the Raspberry Pi Imager from the <a href="https://www.raspberrypi.org/software/">official website</a>.</li>
+            <li>Insert your microSD card into your computer using a card reader.</li>
+            <li>Open the Raspberry Pi Imager and click on "Choose OS".</li>
+            <li>Select "Ubuntu" from the list, and then choose "Ubuntu 22.04 LTS" for Raspberry Pi.</li>
+            <li>Click on "Choose Storage" and select your microSD card.</li>
+            <li>Click on "Write" to begin flashing the SD card with Ubuntu 22.04.</li>
+            <li>Wait for the process to finish, then remove the microSD card from your computer.</li>
+            <li>Insert the microSD card into your Raspberry Pi, connect the necessary peripherals, and power it on.</li>
+        </ol>
+        <!-- End of added instructions -->
+
+        <h3>Installing DroneKit and ArduPilot with Patches</h3>
+        <p>Follow these steps to install DroneKit and ArduPilot, and apply the necessary patches:</p>
+
+        <pre>
+        <code>
+            sudo python3 -m pip uninstall dronekit pymavlink -y
+            mkdir -p updated_dronekit_pkgs && cd updated_dronekit_pkgs
+            git clone https://github.com/morzack/dronekit-python.git && cd dronekit-python
+            git checkout dronekit-ignore-non-vehicle-heartbeats
+            sudo python3 -m pip install . -v
+            cd ..
+            sudo python3 -m pip uninstall pymavlink -y
+            git clone https://github.com/ArduPilot/mavlink.git && cd mavlink
+            git submodule update --recursive --init
+            cd pymavlink
+            git pull origin master
+            git checkout 67669c3
+            sudo python3 setup.py install</code>
+        </pre>
+
+        <h3>Installing Additional Python Packages</h3>
+            <ul>
+                <li><a href="https://docs.python.org/3/library/math.html">math</a></li>
+                <li><a href="https://docs.python.org/3/library/time.html">time</a></li>
+                <li><a href="https://docs.python.org/3/library/sys.html">sys</a></li>
+                <li><a href="https://docs.python.org/3/library/socket.html">socket</a></li>
+                <li><a href="https://docs.python.org/3/library/argparse.html">argparse</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p> Some of these packages are already installed with Python, but we included them here for completeness. If you are missing any of these packages, you can install them with the following command: </p>
+        <pre>
+        <code>
+            sudo python3 -m pip install &lt;package_name&gt;</code>
+        </pre>
 
         <h2>Camera Trap</h2>
 

@@ -14,8 +14,6 @@ Usage:
 Dependencies:
     - dronekit
     - pymavlink
-    - numpy
-    - opencv-python (cv2)
     - argparse
 
 Please refer to the README for more information on usage, configuration, and workflow.
@@ -25,11 +23,11 @@ import math
 import time
 import sys
 import os
-import cv2
+# import cv2
 import socket
-import numpy as np
+# import numpy as np
 import argparse
-import threading
+# import threading
 from dronekit import connect, VehicleMode, LocationGlobalRelative
 from pymavlink import mavutil
 
