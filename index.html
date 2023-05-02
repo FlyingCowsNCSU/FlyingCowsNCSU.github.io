@@ -4,35 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tabbed Interface</title>
+<!-- Link to Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- Link to custom CSS -->
 <link rel="stylesheet" href="styles.css">
-<script src="script.js" defer></script>
 </head>
 <body>
 
-<div class="tab-container">
-  <ul class="tab-list">
-    <li class="tab" onclick="openTab(event, 'practicalProblems')">Practical Problems</li>
-    <li class="tab" onclick="openTab(event, 'problemDescription')">Problem Description</li>
-    <li class="tab" onclick="openTab(event, 'hardware')">Hardware</li>
-    <li class="tab" onclick="openTab(event, 'software')">Software</li>
+<div class="container mt-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#practicalProblems">Practical Problems</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#problemDescription">Problem Description</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#hardware">Hardware</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#software">Software</a>
+    </li>
   </ul>
 
-  <div id="practicalProblems" class="tab-content">
-    <!-- Content of Tab 1 will be fetched from tab1.html -->
-  </div>
+  <div class="tab-content">
+    <div id="practicalProblems" class="tab-pane fade show active">
+      <!-- Content of Tab 1 will be fetched from tab1.html -->
+    </div>
 
-  <div id="problemDescription" class="tab-content" style="display:none;">
-    <!-- Content of Tab 2 will be fetched from tab2.html -->
-  </div>
+    <div id="problemDescription" class="tab-pane fade">
+      <!-- Content of Tab 2 will be fetched from tab2.html -->
+    </div>
 
-  <div id="hardware" class="tab-content" style="display:none;">
-    <!-- Content of Tab 3 will be fetched from tab3.html -->
-  </div>
+    <div id="hardware" class="tab-pane fade">
+      <!-- Content of Tab 3 will be fetched from tab3.html -->
+    </div>
 
-  <div id="software" class="tab-content" style="display:none;">
-    <!-- Content of Tab 3 will be fetched from tab3.html -->
+    <div id="software" class="tab-pane fade">
+      <!-- Content of Tab 4 will be fetched from tab4.html -->
+    </div>
   </div>
 </div>
+
+<!-- Link to Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Link to custom JS -->
+<script src="script.js" defer></script>
 
 </body>
 </html>
