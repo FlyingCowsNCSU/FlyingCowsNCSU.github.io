@@ -52,50 +52,73 @@ SERVER_TIMEOUT = 60 # 60 seconds
 coordinates_list = [
     # Add coordinates here in the format (latitude, longitude, TARGET_ALTITUDE)
     # e.g., (37.422231, -122.085563, TARGET_ALTITUDE),
-    (35.727491, -78.697359, 4), # Dollar Store
+    (35.727491, -78.697359, 4), # Camera location 1 (edge of the field)
 ]
 
 def start_socket_server():
+    # Create a TCP socket object
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # Bind the socket to a local address and port
     server_socket.bind(("", SOCKET_PORT))
+    # Start listening for incoming connections, allowing up to one client in the queue
     server_socket.listen(1)
 
+    # Set a timeout for the server socket
     server_socket.settimeout(60)  # Set a timeout of 60 seconds
 
     try:
+        # Wait for a client to connect to the server
         client_socket, _ = server_socket.accept()
     except socket.timeout:
+        # If no client connects within the timeout period, print a message and close the server socket
         print("No client connection within 60 seconds.")
         server_socket.close()
         return
 
+    # Initialize variables for tracking received image data and the number of images received
     image_counter = 0
     received_data = b""
+
+    # Continuously receive data from the client until a timeout or no data is received
     while True:
         try:
+            # Receive data from the client in chunks of size BUFFER_SIZE
             data = client_socket.recv(BUFFER_SIZE)
         except socket.timeout:
+            # If no data is received within the timeout period, print a message and exit the loop
             print("No data received within 60 seconds.")
             break
         if not data:
+            # If no data is received, print a message and exit the loop
             print("No Data Received")
             break
+        # Append the received data to the total received data
         received_data += data
 
+    # Split the received data into segments delimited by the bytes b"BEGIN"
     image_data_segments = received_data.split(b"BEGIN")
+    # For each segment, extract the image data between b"BEGIN" and b"DONE", and save it as a file
     for segment in image_data_segments[1:]:
+        # Extract the image data between b"BEGIN" and b"DONE"
         image_data = segment.split(b"DONE")[0]
+        # Generate a unique file name using the current timestamp and an incrementing counter
         image_name = f"received_image_{int(time.time())}_{image_counter}.jpg"
+        # Set the file path to the "images_received" directory
         image_path = os.path.join("images_received", image_name)
+        # Write the image data to a file in binary mode
         with open(image_path, "wb") as image_file:
             image_file.write(image_data)
+        # Print a message indicating that an image was received and saved
         print(f"Received image {image_name} from client.")
+        # Increment the image counter
         image_counter += 1
 
+    # Close the client socket and server socket objects
     client_socket.close()
     server_socket.close()
 
 def create_images_received_folder():
+    # Create images_received folder if it doesn't exist
     if not os.path.exists("images_received"):
         os.makedirs("images_received")
 
@@ -157,12 +180,14 @@ while True:
 
 print('Visiting coordinates...')
 for coordinates in coordinates_list:
+    # Go to coordinates
     location = LocationGlobalRelative(coordinates[0], coordinates[1], coordinates[2])
     vehicle.simple_goto(location)
     while distanceToWaypoint(vehicle, location) > WAYPOINT_LIMIT:
         time.sleep(1)
     
     print("Starting socket server at current location...")
+    # Start socket server
     start_socket_server()
     print("Proceeding to the next location...")
 
