@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabbed Interface</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="tab-container">
+  <ul class="tab-list">
+    <li class="tab" onclick="openTab(event, 'tab1')">Tab 1</li>
+    <li class="tab" onclick="openTab(event, 'tab2')">Tab 2</li>
+    <li class="tab" onclick="openTab(event, 'tab3')">Tab 3</li>
+  </ul>
+
+  <div id="practicalProblems" class="tab-content">
+    <!-- Content of Tab 1 will be fetched from tab1.html -->
+  </div>
+
+  <div id="problemDescription" class="tab-content" style="display:none;">
+    <!-- Content of Tab 2 will be fetched from tab2.html -->
+  </div>
+
+  <div id="hardware" class="tab-content" style="display:none;">
+    <!-- Content of Tab 3 will be fetched from tab3.html -->
+  </div>
+
+  <div id="software" class="tab-content" style="display:none;">
+    <!-- Content of Tab 3 will be fetched from tab3.html -->
+  </div>
+</div>
+
+</body>
+</html>
