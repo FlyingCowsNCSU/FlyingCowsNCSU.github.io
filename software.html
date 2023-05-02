@@ -17,7 +17,7 @@ td, th {
 
 	<head>
 		<meta charset="UTF-8">
-        <title>Smokey: Hardware</title>
+        <title>Camera Trap: Software</title>
 		<style>undefined</style>
 		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="true">
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,11 +48,36 @@ td, th {
         </ol>
         <!-- End of added instructions -->
 
-        <h3>Installing DroneKit and ArduPilot with Patches</h3>
-        <p>Follow these steps to install DroneKit and ArduPilot, and apply the necessary patches:</p>
+        <h3>Downloading ArduPilot</h3>
+            <p>To download ArduPilot, follow these steps:</p>
 
-        <pre>
-        <code>
+            <ol>
+            <li>First, make sure you have Git installed on your system. If you don't have it, you can download and install Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
+            <li>Open a terminal or command prompt on your computer.</li>
+            <li>Choose a directory where you want to download the ArduPilot source code. You can create a new folder or use an existing one. Navigate to that folder in the terminal using the <code>cd</code> command. For example, if you want to download ArduPilot into a folder called <code>ardupilot_src</code> in your home directory, you can do the following:</li>
+            <pre>
+            <code>mkdir ~/ardupilot_src
+            cd ~/ardupilot_src</code>
+            </pre>
+            <li>Clone the ArduPilot repository from GitHub using the following command:</li>
+            <pre>
+            <code>git clone https://github.com/ArduPilot/ardupilot.git</code>
+            </pre>
+            <li>Now, navigate to the downloaded <code>ardupilot</code> folder:</li>
+            <pre>
+            <code>cd ardupilot</code>
+            </pre>
+            <li>Update the submodules within the repository:</li>
+            <pre>
+            <code>git submodule update --init --recursive</code>
+            </pre>
+            </ol>
+
+            <p>At this point, you have successfully downloaded the ArduPilot source code to your computer.
+
+        <h3>Installing dronekit and mavlink with Patches</h3>
+            <p>Follow these steps to install dronekit and mavlink, and apply the necessary patches: </p>
+            <pre><code>
             sudo python3 -m pip uninstall dronekit pymavlink -y
             mkdir -p updated_dronekit_pkgs && cd updated_dronekit_pkgs
             git clone https://github.com/morzack/dronekit-python.git && cd dronekit-python
@@ -65,8 +90,8 @@ td, th {
             cd pymavlink
             git pull origin master
             git checkout 67669c3
-            sudo python3 setup.py install</code>
-        </pre>
+            sudo python3 setup.py install
+            </code></pre>
 
         <h3>Installing Additional Python Packages</h3>
             <ul>
@@ -84,6 +109,21 @@ td, th {
             sudo python3 -m pip install &lt;package_name&gt;</code>
         </pre>
 
+        <h3>Running the code on the drone</h3>
+        <pre> 
+            <p>1. In the command window, run the following command to find the port the drone is connected to:</p>
+            <code>ls /dev/ttyACM*</code>
+            
+            <p>2. Run the following command to establish a connection with the drone (assuming you get ttyACM0 from above):</p>
+            <code>mavproxy.py --master=/dev/ttyACM0 --out=udp:127.0.0.1:14551 --out=udp:127.0.0.1:14560</code>
+
+            <p>Use one of the udp link (--out=udp:127.0.0.1:14551) as the connection to the GCS where you would replace "127.0.0.1" with the ip of where GCS is hosted and the other as the connection for the code.</p>
+            
+            <p>3. In a new command window, run the following command to connect your code to the autopilot:</p>
+            <code>python3 drone_mission.py --connect :14560</code>
+        </pre>        
+        
+        
         <h2>Camera Trap</h2>
 
         <p>
