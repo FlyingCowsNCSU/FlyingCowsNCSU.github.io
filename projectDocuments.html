@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documents</title>
+    <style>
+        /* Set the container to take up the full width and a larger height */
+        .pdf-container {
+            width: 100%;
+            height: 90vh; /* Adjust the height value as needed */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Set the iframe to take up the full width and height of the container */
+        iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pdf-container" onclick="openPDF()">
+        <iframe src="FlyingCows_CameraTrap_FinalReport - Google Docs.pdf" frameborder="0"></iframe>
+    </div>
+    <script>
+        function openPDF() {
+            window.open('FlyingCows_CameraTrap_FinalReport - Google Docs.pdf', '_blank');
+        }
+    </script>
+</body>
+
+</html>

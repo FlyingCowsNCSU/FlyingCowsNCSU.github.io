@@ -29,6 +29,10 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="tab" href="#software">Software</a>
       </li>
+      <!-- Add the new tab for project documents -->
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#projectDocuments">Project Documents</a>
+      </li>
     </ul>
 
     <div class="tab-content">
@@ -37,6 +41,8 @@
       <div id="practicalProblems" class="tab-pane fade"></div>
       <div id="hardware" class="tab-pane fade"></div>
       <div id="software" class="tab-pane fade"></div>
+      <!-- Add the new tab content for project documents -->
+      <div id="projectDocuments" class="tab-pane fade"></div>
     </div>
   </div>
 
@@ -47,5 +53,12 @@
 
   <!-- Add the custom script -->
   <script src="script.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Load the projectDocuments.html file into the projectDocuments tab
+      $('#projectDocuments').load('projectDocuments.html');
+    });
+  </script>
 </body>
 </html>
