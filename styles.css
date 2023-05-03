@@ -72,3 +72,8 @@ footer {
   height: calc(100vh - 150px);
   border: none;
 }
+
+/* Ordered and unordered lists styles */
+ol, ul {
+  padding-left: 2em;
+}
