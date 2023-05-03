@@ -163,23 +163,22 @@
                 <li>Official link: <a href="https://www.arduino.cc/en/software">arduino.cc</a></li>
                 <li>Setup guide for ESP32-CAM: <a
                         href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">Random
-                        Nerd Tutorials</a></li>
+                        Nerd Tutorials</a></li>. Version 1.0.6 of the libraries should automatically install.
             </ul>
         </li>
         <li><b>Arduino Libraries:</b>
             <ul>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">Arduino.h</a> version </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">EEPROM.h</a> version </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">esp_camera.h</a> version </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">FS.h</a> version </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_cntl_reg.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">rtc_io.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">SD_MMC.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">soc.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">ssl_client.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">string.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFi.h</a> v </li>
-                <li><a href="http://www.takeuselesswebsite.com/velocityraptor">WiFiClientSecure.h</a> v </li>
+                <li><a href="https://github.com/arduino/ArduinoCore-avr/blob/master/cores/arduino/Arduino.h">Arduino.h</a> -- standard Arduino library</li>
+                <li><a href="https://docs.arduino.cc/learn/built-in-libraries/eeprom">EEPROM.h</a> -- library to access EEPROM memory</li>
+                <li><a href="https://github.com/espressif/esp32-camera">esp_camera.h</a> version 2.0.3 -- provides board-specific information</li>
+                <li><a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/FS">FS.h</a> version 1.0.6 -- access file system on the SD card</li>
+                <li>rtc_cntl_reg.h -- installed as part of ESP32-CAM setup using guide above; fix brownout & access RTC data</li>
+                <li>rtc_io.h -- installed as part of ESP32-CAM setup using guide above; fix brownout & access RTC data </li>
+                <li><a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/SD_MMC">SD_MMC.h</a> version 1.0.6 -- read/write to the SD card</li>
+                <li>soc.h -- installed as part of ESP32-CAM setup using guide above; fix brownout & access RTC data</li>
+                <li>string.h -- standard C string library </li>
+                <li><a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFi">WiFi.h</a> version 1.0.6 -- setup WiFi client/server connection</li>
+                <li><a href="https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure">WiFiClientSecure.h</a> version 1.0.6 -- provides capability to send many bytes at once over WiFi. To use, also do #include <ssl_client.h>, available in the same GitHub repo.</li>
             </ul>
         </li>
     </ul>
