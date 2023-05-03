@@ -9,3 +9,8 @@ $(document).ready(function() {
     $(tabId).load(tabId.substring(1) + ".html");
   });
 });
+
+$(window).on("load", function() {
+  // Load the content of the home page into the first tab
+  $("#problemDescription").load("problemDescription.html");
+});
