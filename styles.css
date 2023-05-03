@@ -91,6 +91,11 @@ ol, ul {
   object-fit: cover;
 }
 
+.image-border {
+  border: 5px solid #007bff;
+  border-radius: 5px;
+}
+
 .team-members-title {
   color: #17a2b8;
   border-bottom: 1px solid #17a2b8;
@@ -107,4 +112,21 @@ ol, ul {
   font-weight: 600;
   color: #6c757d;
   margin-bottom: 5px;
+}
+
+.image-collage {
+  margin-top: 30px;
+  gap: 10px;
+}
+
+.collage-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+th {
+  font-weight: bold;
+  background-color: #f8f9fa;
 }
