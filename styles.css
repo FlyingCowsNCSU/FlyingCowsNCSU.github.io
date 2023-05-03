@@ -77,3 +77,9 @@ footer {
 ol, ul {
   padding-left: 2em;
 }
+
+.centered-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
