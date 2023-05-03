@@ -2,10 +2,10 @@
 
 This README.md file documents the process of attaching a Raspberry Pi to a payload plate and powering it using a buck boost converter. The steps involved in this process are as follows:
 
-1. Attach the Raspberry Pi to the Payload Plate
+1. Attach the Raspberry Pi and Powerboard to the Payload Plate
 2. Attach the Buck Boost Converter to the Base Plate
-3. Connect the Drone Output Raw Battery Voltage to the Power Converter
-4. Power the Raspberry Pi via the 5V and GND Pins
+4. Connect the Drone Output Raw Battery Voltage to the Power Converter
+5. Power the Raspberry Pi via the 5V and GND Pins
 
 ## Step 1: Attach the Raspberry Pi to the Payload Plate
 
