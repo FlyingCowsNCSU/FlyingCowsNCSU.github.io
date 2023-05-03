@@ -53,3 +53,32 @@ The following functions are defined in the script:
 6. The drone saves the received images to the "images_received" folder.
 7. After visiting all waypoints, the drone returns to the launch site and lands.
 8. The script closes the connection to the drone.
+
+
+
+
+## Camera Trap Documentation
+
+`camera_trap.ino` is a program written in Arduino C++, containing all of the code for the camera trap. This code is downloaded onto the ESP32-CAM microcontroller, which can then be placed in the field. For the majority of the time, the ESP32-CAM is in its lowest power deep-sleep mode. There are two interrupts configured that wake up the ESP32: an external GPIO interrupt, and a timer interrupt. These allow the ESP32 to wake up when motion is detected, or after a set time interval to check for the drone's presence. 
+
+### Dependencies
+This code can be downloaded onto the ESP32-CAM from the Arduino IDE. Instructions to install the IDE and setup the required board packages can be found [here](https://flyingcowsncsu.github.io/). 
+
+The following Arduino libraries are used. Installation instructions for these are also found at the link above.
+- `Arduino.h`: standard Arduino library
+- `EEPROM.h`: access EEPROM memory
+- `esp_camera.h`: board-specific info
+- `FS.h`: file system on SD card
+- RTC data and brownout libraries: `rtc_cntl_reg.h`, `rtc_io.h`, `soc.h`
+- `SD_MMC.h`: SD card
+- `string.h`
+- `Wi-Fi.h`: basic Wi-Fi functionality
+- `WiFiClientSecure.h`: send many bytes at once. Also relies on `ssl_client.h`.
+
+### Functions
+The following functions are defined:
+
+- `takePicture()`: takes a picture with the attached camera. Called when the ESP32 wakes up from an external GPIO interrupt. GPIO pin 13 is connected to the PIR sensor.
+- `pollDrone()`: wakes up every 10 seconds and tries to connect to the drone's Wi-Fi. If connection is successful, sends all images on the SD card.
+- `setup()`: runs on wakeup. Based on which interrupt triggered the wakeup, calls either `takePicture()` or `pollDrone()`.
+- `loop()`: dummy while-loop function present in all Arduino scripts; runs nothing
