@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tabbed Interface</title>
-<!-- Link to Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<!-- Link to custom CSS -->
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabbed Interface</title>
+  <!-- Link to Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Link to custom CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="container mt-5">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#practicalProblems">Practical Problems</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#problemDescription">Problem Description</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#hardware">Hardware</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#software">Software</a>
-    </li>
-  </ul>
+  <div class="container mt-5">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#problemDescription">Problem Description</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#practicalProblems"> Practical Problems</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#hardware">Hardware</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#software">Software</a>
+      </li>
+    </ul>
 
-  <div class="tab-content">
-    <div id="practicalProblems" class="tab-pane fade show active">
-      <iframe src="practicalProblems.html" frameborder="0"></iframe>
-    </div>
-
-    <div id="problemDescription" class="tab-pane fade">
-      <iframe src="problemDescription.html" frameborder="0"></iframe>
-    </div>
-
-    <div id="hardware" class="tab-pane fade">
-      <iframe src="hardware.html" frameborder="0"></iframe>
-    </div>
-
-    <div id="software" class="tab-pane fade">
-      <iframe src="software.html" frameborder="0"></iframe>
+    <div class="tab-content">
+      <div id="practicalProblems" class="tab-pane fade show active"></div>
+      <div id="problemDescription" class="tab-pane fade"></div>
+      <div id="hardware" class="tab-pane fade"></div>
+      <div id="software" class="tab-pane fade"></div>
     </div>
   </div>
-</div>
 
-<!-- Link to Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- No need for custom JS -->
-<!-- <script src="script.js" defer></script> -->
+  <!-- Add jQuery before the existing script tags -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+  <!-- Add the custom script -->
+  <script>
+    $(document).ready(function () {
+      console.log("Custom script executed."); // Add this line
+      // Load the content of the first tab by default
+      $("#problemDescription").load("problemDescription.html");
+
+      // When a tab is clicked, load its content
+      $(".nav-link").click(function () {
+        var tabId = $(this).attr("href");
+        $(tabId).load(tabId.substring(1) + ".html");
+      });
+    });
+  </script>
 </body>
 </html>

@@ -66,3 +66,9 @@ footer {
   text-align: center;
   font-size: 0.8em;
 }
+
+.content-iframe {
+  width: 100%;
+  height: calc(100vh - 150px);
+  border: none;
+}
