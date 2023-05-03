@@ -1,0 +1,1 @@
+The data for the camera trap to drone transfer was taken from test flights and our demo, where we recorded the duration of image transfer and juxtaposed it to the number of images being transferred. For the image capture portion of our data, the number of photos taken during a ten second period was measured. 
