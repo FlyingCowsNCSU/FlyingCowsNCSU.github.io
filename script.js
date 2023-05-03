@@ -1,16 +1,13 @@
 $(document).ready(function() {
-  console.log("Custom script executed."); // Add this line
-  // Load the content of the first tab by default
-  $("#problemDescription").load("problemDescription.html");
+  console.log("Custom script executed.");
+
+  // Load the content of the active tab by default
+  var activeTabId = $(".nav-link.active").attr("href");
+  $(activeTabId).load(activeTabId.substring(1) + ".html");
 
   // When a tab is clicked, load its content
   $(".nav-link").click(function() {
     var tabId = $(this).attr("href");
     $(tabId).load(tabId.substring(1) + ".html");
   });
-});
-
-$(window).on("load", function() {
-  // Load the content of the home page into the first tab
-  $("#problemDescription").load("problemDescription.html");
 });
