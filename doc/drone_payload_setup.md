@@ -12,8 +12,9 @@ This README.md file documents the process of attaching a Raspberry Pi to a paylo
 To attach the Raspberry Pi to the payload plate, follow these steps:
 
 1. Place the Raspberry Pi on the payload plate in the desired location
-2. Secure the Raspberry Pi to the payload plate using screws or other appropriate fasteners
-3. Ensure that the Raspberry Pi is securely attached to the payload plate and that there is no movement or play in the connection
+2. Attach the Powerboard to the Raspberry Pi and ensure that it is fastened
+3. Secure the Raspberry Pi to the payload plate using screws or other appropriate fasteners
+4. Ensure that the Raspberry Pi is securely attached to the payload plate and that there is no movement or play in the connection
 
 ## Step 2: Attach the Buck Boost Converter to the Base Plate
 
