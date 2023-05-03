@@ -11,7 +11,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background-color: #fff;
+  background-color: #fff, #f8f9fa;
 }
 
 /* Header styles */
@@ -78,8 +78,33 @@ ol, ul {
   padding-left: 2em;
 }
 
+.project-title {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
 .centered-image {
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
+}
+
+.team-members-title {
+  color: #17a2b8;
+  border-bottom: 1px solid #17a2b8;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.team-members-list {
+  padding-left: 0;
+}
+
+.team-members-list li {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 5px;
 }
