@@ -34,11 +34,9 @@
     </center>
 
     <h2>Drone</h2>
-
     <p> For the drone we mainly used many python libraies on a Rapberry Pi 4 running Ubuntu 22.04 LTS. We used the
         following libraries: </p>
 
-    <!-- Added instructions for flashing an SD card -->
     <h3>Flashing Ubuntu 22.04 on Raspberry Pi using Raspberry Pi Imager</h3>
     <ol>
         <li>Download and install the Raspberry Pi Imager from the <a
@@ -51,57 +49,62 @@
         <li>Wait for the process to finish, then remove the microSD card from your computer.</li>
         <li>Insert the microSD card into your Raspberry Pi, connect the necessary peripherals, and power it on.</li>
     </ol>
-    <!-- End of added instructions -->
 
+
+    <!-- Download ArduPilot -->
     <h3>Downloading ArduPilot</h3>
-    <p>To download ArduPilot, follow these steps:</p>
+    <p>Follow these steps to download ArduPilot:</p>
 
     <ol>
-        <li>First, make sure you have Git installed on your system. If you don't have it, you can download and install
-            Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
+        <li>Make sure you have Git installed on your system. If not, download and install Git from <a
+                href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</li>
         <li>Open a terminal or command prompt on your computer.</li>
         <li>Choose a directory where you want to download the ArduPilot source code. You can create a new folder or use
             an existing one. Navigate to that folder in the terminal using the <code>cd</code> command. For example, if
-            you want to download ArduPilot into a folder called <code>ardupilot_src</code> in your home directory, you
-            can do the following:</li>
-        <pre>
-            <code>mkdir ~/ardupilot_src
-            cd ~/ardupilot_src</code>
-            </pre>
+            you want to download ArduPilot into a folder called <code>ardupilot_src</code> in your home directory, enter
+            the following commands:</li>
+        <div style="background-color:black; color:white; padding:10px;">
+            <code>mkdir ~/ardupilot_src</code><br>
+            <code>cd ~/ardupilot_src</code>
+        </div>
         <li>Clone the ArduPilot repository from GitHub using the following command:</li>
-        <pre>
+        <div style="background-color:black; color:white; padding:10px;">
             <code>git clone https://github.com/ArduPilot/ardupilot.git</code>
-            </pre>
-        <li>Now, navigate to the downloaded <code>ardupilot</code> folder:</li>
-        <pre>
+        </div>
+        <li>Navigate to the downloaded <code>ardupilot</code> folder:</li>
+        <div style="background-color:black; color:white; padding:10px;">
             <code>cd ardupilot</code>
-            </pre>
+        </div>
         <li>Update the submodules within the repository:</li>
-        <pre>
+        <div style="background-color:black; color:white; padding:10px;">
             <code>git submodule update --init --recursive</code>
-            </pre>
+        </div>
     </ol>
 
-    <p>At this point, you have successfully downloaded the ArduPilot source code to your computer.
+    <p>You have now successfully downloaded the ArduPilot source code to your computer.</p>
 
+    <!-- <h3>Patches for dronekit and mavlink</h3> -->
     <h3>Installing dronekit and mavlink with Patches</h3>
     <p>Follow these steps to install dronekit and mavlink, and apply the necessary patches: </p>
-    <pre><code>
-            sudo python3 -m pip uninstall dronekit pymavlink -y
-            mkdir -p updated_dronekit_pkgs && cd updated_dronekit_pkgs
-            git clone https://github.com/morzack/dronekit-python.git && cd dronekit-python
-            git checkout dronekit-ignore-non-vehicle-heartbeats
-            sudo python3 -m pip install . -v
-            cd ..
-            sudo python3 -m pip uninstall pymavlink -y
-            git clone https://github.com/ArduPilot/mavlink.git && cd mavlink
-            git submodule update --recursive --init
-            cd pymavlink
-            git pull origin master
-            git checkout 67669c3
-            sudo python3 setup.py install
-            </code></pre>
+    <div style="background-color:black; color:white; padding:10px;">
+        <code>
+        sudo python3 -m pip uninstall dronekit pymavlink -y<br>
+        mkdir -p updated_dronekit_pkgs && cd updated_dronekit_pkgs<br>
+        git clone https://github.com/morzack/dronekit-python.git && cd dronekit-python<br>
+        git checkout dronekit-ignore-non-vehicle-heartbeats<br>
+        sudo python3 -m pip install . -v<br>
+        cd ..<br>
+        sudo python3 -m pip uninstall pymavlink -y<br>
+        git clone https://github.com/ArduPilot/mavlink.git && cd mavlink<br>
+        git submodule update --recursive --init<br>
+        cd pymavlink<br>
+        git pull origin master<br>
+        git checkout 67669c3<br>
+        sudo python3 setup.py install<br>
+    </code>
+    </div>
 
+    <!-- Installing Additional Python Packages -->
     <h3>Installing Additional Python Packages</h3>
     <ul>
         <li><a href="https://docs.python.org/3/library/math.html">math</a></li>
@@ -119,6 +122,7 @@
             sudo python3 -m pip install &lt;package_name&gt;</code>
         </pre>
 
+    <!-- Running the Code -->
     <h3>Running the code on the drone</h3>
     <pre>
             <p>1. In the command window, run the following command to find the port the drone is connected to:</p>
@@ -173,4 +177,5 @@
     </ul>
     </table>
 </body>
-</html> 
+
+</html>
