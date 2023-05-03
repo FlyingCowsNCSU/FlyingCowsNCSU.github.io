@@ -9,7 +9,7 @@ This README.md file documents the process of attaching a Raspberry Pi to a paylo
 
 ## Step 1: Attach the Raspberry Pi to the Payload Plate
 
-To attach the Raspberry Pi to the payload plate, follow these steps:
+To attach the Raspberry Pi and Powerboard to the payload plate, follow these steps:
 
 1. Place the Raspberry Pi on the payload plate in the desired location
 2. Attach the Powerboard to the Raspberry Pi and ensure that it is fastened
