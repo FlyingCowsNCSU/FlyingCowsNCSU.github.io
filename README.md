@@ -1,1 +1,1 @@
-# FlyingDevilCows.github.io
+# FlyingCowsNCSU.github.io
