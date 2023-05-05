@@ -1,49 +1,45 @@
-<h1>Practical Problems</h1>
-<ul>
-  <p>
-    <li>Sending Images: Our first issue prior to the field testing was being able to send images from the camera to the
-      raspberry pi. Due to the size or the capacity of the picture the picture that was stored on the esp32 either
-      became distorted or was unable to open. As a result of this we messed around with the type of photo and how it was
-      stored (jpeg, png, jpg). We then tested to see if its a code issue by simulating the code through a SITL setup.
-      After a couple of changes to the overall image size and bits that are stored the images were able to send properly
-      in its original state.
-  </p>
-  </li>
+<div>
+  <br><h1 class="text-center">Practical Problems</h1>
+  <ul class="list-unstyled">
+    <li>
+      <p><strong>Sending Images:</strong> Our first issue prior to the field testing was being able to send images from
+        the camera to the Raspberry Pi. Due to the size or the capacity of the picture, the picture that was stored on
+        the ESP32 either became distorted or was unable to open. As a result of this, we experimented with the type of
+        photo and how it was stored (jpeg, png, jpg). We then tested to see if it was a code issue by simulating the
+        code through a SITL setup. After making several changes to the overall image size and bits that are stored, the
+        images were able to send properly in their original state.</p>
+    </li>
 
-  <p>
-    <li>Vrone Simulations: Using the vrone in order to debug and simulate what a drone in the field would do became an
-      outlying problem. When trying to run the simulation on the Vrone our group kept getting the "mode (0)" prompt
-      which gave us an indication that our script was not able to run. After doing many tests and even resetting our
-      raspberry pi completely we were informed to switch and try to simulate using a different Vrone. Once switching we
-      realized that the problem did not reside in our setup or script but it was the flight controller on the vrone that
-      posed the "mode(0)" problem.
-  </p>
-  </li>
+    <li>
+      <p><strong>Vrone Simulations:</strong> Using the Vrone to debug and simulate what a drone in the field would do
+        became an outlying problem. When trying to run the simulation on the Vrone, our group kept getting the "mode
+        (0)" prompt, which indicated that our script was not able to run. After conducting many tests and even resetting
+        our Raspberry Pi completely, we were advised to switch and try to simulate using a different Vrone. Once we
+        switched, we realized that the problem did not reside in our setup or script, but it was the flight controller
+        on the Vrone that posed the "mode(0)" problem.</p>
+    </li>
 
-  <p>
-    <li>Socket Connection: While we were at the field we had a problem where the camera would not connect to the
-      raspberry pi which was on the drone. This made it so that images were not able to transfer and the drone. The
-      flight was orginially setup so that the drone would return to launch (RTL) whenver the pictures were sent over. In
-      order to test we created a timer which would allow the drone to RTL after a fixed amount of time if there was no
-      connection attempted. After the drone initiated RTL, we understood that it was a connection problem and not the
-      problem with the actual drone. After looking through the code the camera trsp team realized that the port number
-      that was opened by the socket of the drone did not match that in the camera which was the reason why there was no
-      connection.
-  </p>
-  </li>
+    <li>
+      <p><strong>Socket Connection:</strong> While we were at the field, we had a problem where the camera would not
+        connect to the Raspberry Pi on the drone. This prevented image transfer and the drone. The flight was originally
+        set up so that the drone would return to launch (RTL) whenever the pictures were sent over. In order to test, we
+        created a timer which would allow the drone to RTL after a fixed amount of time if no connection was attempted.
+        After the drone initiated RTL, we understood that it was a connection problem and not an issue with the actual
+        drone. After reviewing the code, the camera team realized that the port number opened by the socket of the drone
+        did not match that in the camera, which was the reason why there was no connection.</p>
+    </li>
 
-  <p>
-    <li>Camera Delay: After resolving the issue of the connection we ran into the problem of the camera not being able
-      to take photos without a delay. Ofcourse we were not expecting to have 0 delay due the hardware and the cost
-      effective items that were used, but we wanted to be able to make it so that it had the least amount of delay as
-      possible. The way we resolved or just improved the delay was repositioning the camera and rechecking the soldering
-      to ensure there was no bindings with the pins. After donig these two things we were able to lower the delay and
-      was able to capture a person or animal walking past it.
-  </p>
-  </li>
-
-</ul>
-<p> ***Advice for next years students: Although a project of this caliber can be scary, trust in your experience and let
-  this class be a way for you to be able to take what you learn and apply it in a hands on enviroment. Do not give up
-  when approached by a problem and trust in yourself and your teamates. Lastly do not be afraid to ask for help, the
-  professors and the TA's are here to learn and grow with you! </p>
+    <li>
+      <p><strong>Camera Delay:</strong> After resolving the connection issue, we faced the problem of the camera not
+        being able to take photos without a delay. Of course, we were not expecting to have zero delay due to the
+        hardware and cost-effective items used, but we wanted to minimize the delay as much as possible. We resolved or
+        improved the delay by repositioning the camera and rechecking the soldering to ensure there were no issues with
+        the pins. After doing these two things, we were able to reduce the delay and capture a person or animal walking
+        past it.</p>
+    </li>
+  </ul>
+  <p><em>***Advice for next year's students:</em> Although a project of this caliber can be intimidating, trust in your
+    experience and let this class be a way for you to apply what you've learned in a hands-on environment. Don't give up
+    when faced with a problem, and trust in yourself and your teammates. Lastly, don't be afraid to ask for help; the
+    professors and TAs are here to learn and grow with you!</p>
+</div>
